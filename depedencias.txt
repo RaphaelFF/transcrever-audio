@@ -1,0 +1,17 @@
+instalação da ffmpeg
+baixar via Windows builds by BtbN
+nome do zip = ffmpeg-master-latest-win64-gpl.zip
+ajuste a variavel de ambiente
+
+https://www.geeksforgeeks.org/how-to-install-ffmpeg-on-windows/
+
+
+instalar openai-whisper
+https://pypi.org/project/openai-whisper/
+
+
+streamlit
+comando para buind: python -m streamlit run nome_arquivo.py
+
+modelos gemini
+https://ai.google.dev/api/generate-content?hl=pt-br#text_gen_multimodal_pdf_streaming-PYTHON
