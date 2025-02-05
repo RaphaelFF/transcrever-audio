@@ -15,3 +15,10 @@ comando para buind: python -m streamlit run nome_arquivo.py
 
 modelos gemini
 https://ai.google.dev/api/generate-content?hl=pt-br#text_gen_multimodal_pdf_streaming-PYTHON
+
+
+Funcionamento do sistema: 
+
+-> Carregamento de Arquivo de Áudio: O usuário pode carregar um arquivo de áudio no formato MP3, WAV ou M4A.
+-> Transcrição de Áudio: O código utiliza a biblioteca Whisper para transcrever o conteúdo do arquivo de áudio.
+-> Geração de Resumo: O código utiliza a API do Google Generative AI para gerar um resumo do conteúdo do arquivo de áudio.

@@ -7,7 +7,9 @@ import os
 GOOGLE_API_KEY = "AIzaSyDhBxq0OSGCZ1M8t6xQoaZL3D1eKPS-sAU"
 genai.configure(api_key=GOOGLE_API_KEY)
 
+
 modelo = whisper.load_model("tiny")
+
 
 model = genai.GenerativeModel("gemini-1.5-flash")
 
@@ -30,6 +32,7 @@ def gerarResumo(audio_file):
         if mime_type is None:
             raise ValueError("Tipo MIME desconhecido")
 
+ 
         sample_audio = genai.upload_file(tmp_file, mime_type=mime_type)
 
         response = model.generate_content(["faça um resumo desse audio file.", sample_audio])
@@ -43,19 +46,25 @@ def gerarResumo(audio_file):
 def main():
     st.title("Transcrição e Resumo de Áudio")
 
+    
+
     audio_file = st.file_uploader("Selecione o arquivo de áudio", type=["m4a", "mp3", "wav"]) 
+
 
     if audio_file is not None:
   
         resumo =gerarResumo(audio_file)
 
-        with st.container():
+        #resumo = gerarResumo(audio_file)
+        col1, col2 = st.columns(2)
+
+        with col1:
             st.header("Transcrição")
             transcricao = modelo.transcribe(audio_file.name)
             st.write(transcricao["text"])
-        with st.container():
-            st.header("Resumo")
-            st.write(resumo)
+        with col2:
+             st.header("Resumo")
+             st.write(resumo)
 
 if __name__ == "__main__":
     main()
